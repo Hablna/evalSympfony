@@ -38,7 +38,7 @@ class CollierController extends AbstractController
         ]);
     }
 
-    #[Route('/collier/modifier/{id}', name: 'app_modifier_collier')]
+        #[Route('/collier/modifier/{id}', name: 'app_modifier_collier')]
     public function modifier($id, Request $request, ManagerRegistry $registry, CollierRepository $repo): Response
     {
         $collier = $repo->find($id);
