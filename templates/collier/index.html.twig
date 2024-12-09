@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Marques{% endblock %}
+
+{% block body %}
+    <h1>Let's gooooo</h1>
+    <table class="table table-stripped">
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        {% for c in collier %}
+            <tr>
+                <td>{{ c.titre }}</td>
+                <td>{{ c.description }}</td>
+                <td>{{ c.couleur }}</td>
+                <td>{{ c.prix }}</td>
+                <td>{{ c.matiere }}</td>
+                <td>{{ c.promo }}</td>
+                <td>{{ c.marque }}</td>
+                <td>{{ c.codeBarre }}</td>
+                <td>
+                    <a href="{{ path("app_modifier_collier", {"id": c.id}) }}"
+                       class="btn btn-sm btn-primary">
+                        Modifier
+                    </a>
+                    <a href="{{ path("app_supprimer_collier", {"id": c.id}) }}"
+                       class="btn btn-sm btn-danger">
+                        Supprimer
+                    </a>
+
+                </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ path("app_ajouter_marque")}}" class="btn btn-primary">Ajouter</a>
+{% endblock %}
